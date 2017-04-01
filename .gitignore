@@ -1,0 +1,11 @@
+Makefile
+Makefile.old
+MYMETA.*
+*.bak
+*.tar.gz
+blib
+pm_to_blib
+# directories with automatically generated files
+logs
+sessions
+plack_debugger/*json
