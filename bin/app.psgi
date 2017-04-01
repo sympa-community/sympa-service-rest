@@ -14,39 +14,7 @@ Sympa::API::REST->to_app;
 use Plack::Builder;
 
 builder {
-    enable 'Deflater';
     Sympa::API::REST->to_app;
 }
 
-
-
-=begin comment
-# use this block if you want to include middleware such as Plack::Middleware::Deflater
-
-use Sympa::API::REST;
-use Plack::Builder;
-
-builder {
-    enable 'Deflater';
-    Sympa::API::REST->to_app;
-}
-
-=end comment
-
-=cut
-
-=begin comment
-# use this block if you want to include middleware such as Plack::Middleware::Deflater
-
-use Sympa::API::REST;
-use Sympa::API::REST_admin;
-
-builder {
-    mount '/'      => Sympa::API::REST->to_app;
-    mount '/admin'      => Sympa::API::REST_admin->to_app;
-}
-
-=end comment
-
-=cut
 
