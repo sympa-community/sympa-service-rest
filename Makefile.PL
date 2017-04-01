@@ -8,10 +8,10 @@ my $eumm_version = $ExtUtils::MakeMaker::VERSION;
 $eumm_version =~ s/_//;
 
 WriteMakefile(
-    NAME                => 'Sympa::API::REST',
-    AUTHOR              => q{YOUR NAME <youremail@example.com>},
-    VERSION_FROM        => 'lib/Sympa/API/REST.pm',
-    ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
+    NAME             => 'Sympa::API::REST',
+    AUTHOR           => q{Sympa Community <sympa-developpers@listes.renater.fr>},
+    VERSION_FROM     => 'lib/Sympa/API/REST.pm',
+    ABSTRACT_FROM    => 'lib/Sympa/API/REST.pm',
     ($eumm_version >= 6.3001
       ? ('LICENSE'=> 'perl')
       : ()),
@@ -23,4 +23,11 @@ WriteMakefile(
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Sympa-API-REST-*' },
+    META_MERGE        => {
+        resources => {
+            repository  => 'https://github.com/sympa-community/sympa-service-rest',
+            bugtracker => 'https://github.com/sympa-community/sympa-service-rest/issues',
+            IRC => 'irc://irc.freenode.net/#sympa',
+        },
+    },
 );
