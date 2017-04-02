@@ -13,5 +13,6 @@ Makefile$
 ^.*\.swp$
 MYMETA.*
 ^.gitignore
+^.travis.yml
 ^.svn\/
 ^Sympa-API-REST-

@@ -1,7 +1,6 @@
 .dancer
 bin/app.psgi
 config.yml
-cpanfile
 environments/development.yml
 environments/production.yml
 lib/Sympa/API/REST.pm
