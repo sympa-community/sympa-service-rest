@@ -1,0 +1,581 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Sympa API"
+  },
+  "host" : "api.sympa.com",
+  "basePath" : "/v1",
+  "schemes" : [ "https" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/groups/" : {
+      "get" : {
+        "description" : "Gets `Group` objects.",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "Page size (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "Use to ask filters and other",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "array",
+              "title" : "ArrayOfGroups",
+              "items" : {
+                "$ref" : "#/definitions/Group"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "description" : "Create a `Group` object.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "group",
+          "description" : "the `Group` to create.",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Group"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "a `Group` successfully created.",
+            "schema" : {
+              "$ref" : "#/definitions/Group"
+            }
+          }
+        }
+      }
+    },
+    "/group/:id/" : {
+      "get" : {
+        "description" : "Gets `Group` object.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "$ref" : "#/definitions/Group"
+            }
+          },
+          "404" : {
+            "description" : "a `Group` is not found"
+          }
+        }
+      },
+      "put" : {
+        "description" : "Modify a `Group` object.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "group",
+          "description" : "the `Group` to modify.",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Group"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a `Group` successfully modified.",
+            "schema" : {
+              "$ref" : "#/definitions/Group"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "description" : "Deletes `Group` object.",
+        "parameters" : [ ],
+        "responses" : {
+          "204" : {
+            "description" : "a `Group` successfully deleted",
+            "schema" : {
+              "$ref" : "#/definitions/Group"
+            }
+          },
+          "404" : {
+            "description" : "a `Group` is not found"
+          }
+        }
+      }
+    },
+    "/group/:id/users/" : {
+      "get" : {
+        "description" : "Gets `User` objects of a `Group`.\nUse `Query` to request `User` by role.\n",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "Page size (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "Use to ask filters and other",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "array",
+              "title" : "ArrayOfUsers",
+              "items" : {
+                "$ref" : "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/group/:id/threads/" : {
+      "get" : {
+        "description" : "Gets `Thread` objects of a `Group`.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "array",
+              "title" : "ArrayOfThreads",
+              "items" : {
+                "$ref" : "#/definitions/Thread"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/" : {
+      "get" : {
+        "description" : "Gets `User` objects.",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "Page size (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "Use to ask filters and other",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "array",
+              "title" : "ArrayOfUsers",
+              "items" : {
+                "$ref" : "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "description" : "Create a `User` object.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "user",
+          "description" : "the `User` to create.",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/User"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "a `User` successfully created.",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/user/:id" : {
+      "get" : {
+        "description" : "Gets `User` object.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          },
+          "404" : {
+            "description" : "a `User` is not found"
+          }
+        }
+      },
+      "put" : {
+        "description" : "Modify a `User` object.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "user",
+          "description" : "the `User` to modify.",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/User"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a `User` successfully modified.",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "description" : "Deletes `User` object.",
+        "parameters" : [ ],
+        "responses" : {
+          "204" : {
+            "description" : "a `User` successfully deleted",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          },
+          "404" : {
+            "description" : "a `User` is not found"
+          }
+        }
+      }
+    },
+    "/user/:id/groups/" : {
+      "get" : {
+        "description" : "Gets `Group` objects.\nUse `Query` to request favorites or subscribed groups\n",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "Page size (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "Use to ask filters and other",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "array",
+              "title" : "ArrayOfGroups",
+              "items" : {
+                "$ref" : "#/definitions/Group"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/threads/" : {
+      "get" : {
+        "description" : "Gets `Thread` object.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "array",
+              "title" : "ArrayOfThreads",
+              "items" : {
+                "$ref" : "#/definitions/Thread"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "description" : "Create a `Thread` object.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "thread",
+          "description" : "the `Thread` to create.",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Thread"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "a `Thread` successfully created.",
+            "schema" : {
+              "$ref" : "#/definitions/Thread"
+            }
+          }
+        }
+      }
+    },
+    "/thread/:id" : {
+      "get" : {
+        "description" : "Gets `Thread` object.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "$ref" : "#/definitions/Thread"
+            }
+          },
+          "404" : {
+            "description" : "a `Thread` is not found"
+          }
+        }
+      },
+      "put" : {
+        "description" : "Modify a `Thread` object.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "thread",
+          "description" : "the `Thread` to modify.",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Thread"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a `Thread` successfully modified.",
+            "schema" : {
+              "$ref" : "#/definitions/Thread"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "description" : "Deletes `Thread` object.",
+        "parameters" : [ ],
+        "responses" : {
+          "204" : {
+            "description" : "a `Thread` successfully deleted",
+            "schema" : {
+              "$ref" : "#/definitions/Thread"
+            }
+          },
+          "404" : {
+            "description" : "a `Thread` is not found"
+          }
+        }
+      }
+    },
+    "/thread/:id/users/" : {
+      "get" : {
+        "description" : "Gets `User` objects of a `Thread`. So you can get contributors\n",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page number (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "Page size (pagination)",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "Use to ask filters and other",
+          "required" : false,
+          "type" : "number",
+          "format" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "type" : "array",
+              "title" : "ArrayOfUsers",
+              "items" : {
+                "$ref" : "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Group" : {
+      "required" : [ "id", "self" ],
+      "properties" : {
+        "self" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "subject" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "image" : {
+          "type" : "string"
+        },
+        "mail" : {
+          "type" : "string"
+        },
+        "tags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "title" : "Tag"
+          }
+        }
+      }
+    },
+    "Thread" : {
+      "required" : [ "id", "self" ],
+      "properties" : {
+        "self" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer"
+        },
+        "subject" : {
+          "type" : "string"
+        },
+        "replies" : {
+          "type" : "integer"
+        },
+        "activity" : {
+          "type" : "string"
+        },
+        "tags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "title" : "Tag"
+          }
+        }
+      }
+    },
+    "User" : {
+      "required" : [ "id", "self" ],
+      "properties" : {
+        "self" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer"
+        },
+        "image" : {
+          "type" : "string"
+        },
+        "mail" : {
+          "type" : "string"
+        },
+        "last_name" : {
+          "type" : "string"
+        },
+        "first_name" : {
+          "type" : "string"
+        },
+        "birth_date" : {
+          "type" : "string"
+        },
+        "roles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "title" : "Role"
+          }
+        }
+      }
+    }
+  },
+  "parameters" : {
+    "PageSize" : {
+      "name" : "page_size",
+      "in" : "query",
+      "description" : "Page size (pagination)",
+      "required" : false,
+      "type" : "number",
+      "format" : "integer"
+    },
+    "Query" : {
+      "name" : "q",
+      "in" : "query",
+      "description" : "Use to ask filters and other",
+      "required" : false,
+      "type" : "number",
+      "format" : "integer"
+    },
+    "Page" : {
+      "name" : "page",
+      "in" : "query",
+      "description" : "Page number (pagination)",
+      "required" : false,
+      "type" : "number",
+      "format" : "integer"
+    }
+  }
+}

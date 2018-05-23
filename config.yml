@@ -50,3 +50,7 @@ template: "simple"
 #      cookie_name: eshop.session
 #      is_secure: 1
 #      is_http_only: 1
+
+plugins:
+  OpenAPIRoutes:
+    schema: "public/sympa-api.json"
