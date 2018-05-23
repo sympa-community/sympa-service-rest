@@ -12,7 +12,7 @@ Sympa::API::REST - REST API for Sympa Mailinglist Manager
 
 our $VERSION = '0.1';
 
-OpenAPIRoutes();
+OpenAPIRoutes(0);
 
 get '/' => sub {
     template 'index' => { 'title' => 'Sympa::API::REST' };
