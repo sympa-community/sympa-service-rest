@@ -54,3 +54,4 @@ template: "simple"
 plugins:
   OpenAPIRoutes:
     schema: "public/sympa-api.json"
+    namespace: "Sympa::API::REST"
